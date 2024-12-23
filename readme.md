@@ -30,7 +30,7 @@ Este es el proyecto final del curso de Front end JS
 
 1. Clonar este repositorio:
    ```bash
-   git clone https://github.com/usuario/proyecto-final-ecommerce.git
+   git clone https://github.com/RickyEvans77/TPFinal
    ```
 
 2. Abrir el archivo `index.html` en un navegador web o subir el proyecto a un hosting para una experiencia completa.

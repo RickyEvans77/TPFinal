@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(data => displayProducts(data));
 
-    // Display Products
+    // mostrar productos
     function displayProducts(products) {
         const productContainer = document.getElementById('productos-list');
         productContainer.className = 'product-container'; // Añadimos la clase product-container al contenedor
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Contact Form Validation
+    // Contacto para validacion
     const contactForm = document.getElementById('contact-form');
     contactForm.addEventListener('submit', (e) => {
         const nombre = document.getElementById('nombre').value;
@@ -45,15 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Cart Logic
+    // Carrito
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Update Local Storage
+    // Actualizar almacenamiento local
     function updateLocalStorage() {
         localStorage.setItem('cart', JSON.stringify(cart));
     }
 
-    // Render Cart Items
     function renderCart() {
         const cartContainer = document.getElementById('cart-container');
         cartContainer.innerHTML = '';
@@ -76,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     renderCart();
 
-    // Add to Cart Logic
+    //Añadir al carrito
     document.addEventListener('click', (e) => {
         if (e.target.classList.contains('add-to-cart')) {
             const productId = e.target.getAttribute('data-id');
@@ -94,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(`Producto ${productId} agregado al carrito.`);
         }
 
-        // Increase Quantity
+        // Aumentar cantidad
         if (e.target.classList.contains('increase-qty')) {
             const index = e.target.getAttribute('data-index');
             cart[index].quantity++;
@@ -102,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
             renderCart();
         }
 
-        // Decrease Quantity
+        // Disminuir cantidad
         if (e.target.classList.contains('decrease-qty')) {
             const index = e.target.getAttribute('data-index');
             if (cart[index].quantity > 1) {
@@ -112,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Remove Item
+        // Quitar item
         if (e.target.classList.contains('remove-item')) {
             const index = e.target.getAttribute('data-index');
             cart.splice(index, 1);
